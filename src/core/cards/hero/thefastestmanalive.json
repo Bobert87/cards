@@ -1,0 +1,10 @@
+{
+   "cardType": "Hero",
+   "name": "The Fastest Man Alive",
+   "cost": 5,
+   "victoryPoints" : 1,
+   "description":"Draw two cards.",
+   "powers": [
+      {"drawCard":["Turn",2,""]}
+   ]
+}

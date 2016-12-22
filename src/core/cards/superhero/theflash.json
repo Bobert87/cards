@@ -1,0 +1,10 @@
+{
+   "cardType": "Super Hero",
+   "name": "The Flash",
+   "cost": 0,
+   "victoryPoints" : 0,
+   "description":"You go first. The first time a card tells you to draw one or more cards during each of your turns draw an additional card.",
+   "powers": [
+      {"drawCard":["Turn",1,"is Equipment"]}
+   ]
+}

@@ -1,0 +1,10 @@
+{
+   "cardType": "Villain",
+   "name": "Gorilla Grodd",
+   "cost": 5,
+   "victoryPoints" : 2,
+   "description":"+3 Power",
+   "powers": [
+      {"addPower":["Turn",3,""]}
+   ]
+}

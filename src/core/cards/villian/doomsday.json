@@ -1,0 +1,10 @@
+{
+   "cardType": "Villain",
+   "name": "Doomsday",
+   "cost": 6,
+   "victoryPoints" : 2,
+   "description":"+4 Power",
+   "powers": [
+      {"addPower":["Turn",4,""]}
+   ]
+}

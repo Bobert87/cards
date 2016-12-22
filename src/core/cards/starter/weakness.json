@@ -1,0 +1,9 @@
+{
+   "cardType": "Weakness",
+   "name": "Weakness",
+   "cost": 0,
+   "victoryPoints" : -1,
+   "description":"Weakness cards reduce your score at the end of the game.",
+   "powers": [
+   ]
+}

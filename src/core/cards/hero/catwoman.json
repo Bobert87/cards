@@ -1,0 +1,10 @@
+{
+   "cardType": "Hero",
+   "name": "Catwoman",
+   "cost": 2,
+   "victoryPoints" : 1,
+   "description":"+2 Power",
+   "powers": [
+      {"addPower":["Turn",2,""]}
+   ]
+}

@@ -1,0 +1,10 @@
+{
+   "cardType": "Hero",
+   "name": "Kid Flash",
+   "cost": 2,
+   "victoryPoints" : 1,
+   "description":"Draw a card.",
+   "powers": [
+      {"drawCard":["Turn",1,""]}
+   ]
+}

@@ -1,0 +1,10 @@
+{
+   "cardType": "Super Power",
+   "name": "Super Strength",
+   "cost": 7,
+   "victoryPoints" : 2,
+   "description":"+5 Power",
+   "powers": [
+      {"addPower":["Turn",5,""]}
+   ]
+}

@@ -1,0 +1,10 @@
+{
+   "cardType": "Super Hero",
+   "name": "Batman",
+   "cost": 0,
+   "victoryPoints" : 0,
+   "description":"+ 1 Power for each Equipment you play during your turn.",
+   "powers": [
+          {"addPower":["Card",1,"is Equipment"]}
+   ]
+}

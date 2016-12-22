@@ -1,0 +1,10 @@
+{
+   "cardType": "Super Hero",
+   "name": "Superman",
+   "cost": 0,
+   "victoryPoints" : 0,
+   "description":"+1 Power for each different Super Power you play during your turn.",
+   "powers": [
+      {"addPower":["Card",1,"is distinct Super Power"]}
+   ]
+}

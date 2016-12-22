@@ -1,0 +1,10 @@
+{
+   "cardType": "Starter",
+   "name": "Punch",
+   "cost": 0,
+   "victoryPoints" : 0,
+   "description":"+1 Power",
+   "powers": [
+      {"addPower":["Turn",1,""]}
+   ]
+}
