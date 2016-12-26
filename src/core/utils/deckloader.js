@@ -1,19 +1,27 @@
-var AllCards = [];
-var MainDeck = [];
-var loadCards = function (deckConfig)
-{
-    for (var card in deckConfig)
-    {
-        console.log(deckConfig[card].file);
-        AllCards.push(require('../cards/'+deckConfig[card].file))
-        for (i=0; i< deckConfig[card].count;i++)
-        {
-            MainDeck.push(deckConfig[card]);
-        }
-
+let loadAllCards = function (deckConfig) {
+    let allCards;
+    allCards = [];
+    for (let card in deckConfig.cards) {
+        let c = require('../cards/' + deckConfig.cards[card].file);
+        allCards.push(c)
     }
-    console.log(JSON.stringify(MainDeck)+'---->');
-    return MainDeck;
+    return allCards;
+}
+let loadMainDeck = function (deckConfig,allCards) {
+    let mainDeck = [];
+    for (let cardConfig in deckConfig.cards) {
+        for (let card in allCards) {
+            if (deckConfig.cards[cardConfig].name === allCards[card].name) {
+                if (deckConfig.outOfDeck.indexOf(allCards[card].type) < 0) {
+                    for (let i = 0; i < deckConfig.cards[card].count; i++) {
+                        mainDeck.push(allCards[card]);
+                    }
+                }
+            }
+        }
+    }
+    return mainDeck;
 }
 
-module.exports.loadCards = loadCards;
+module.exports.loadAllCards = loadAllCards;
+module.exports.loadMainDeck = loadMainDeck;

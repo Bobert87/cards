@@ -1,0 +1,25 @@
+{
+  "name": "cards",
+  "version": "1.0.0",
+  "description": "Criptozoic Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express-server": "^0.5.3",
+    "grunt-serve": "^0.1.6",
+    "jshint-stylish": "latest"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

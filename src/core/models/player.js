@@ -1,11 +1,16 @@
+var guid = require('node-uuid');
+
 class Player{
-    constructor (email,nickname,order)
+    constructor (email,nickname,order,character,hand=[],deck=[])
     {
+        this.id = guid.v4();
         this.email = email;
         this.nickname = nickname;
         this.order = order;
-        this.hand = [];
-        this.deck = [];
+        this.character = character;
+        this.hand = hand;
+        this.deck = deck;
+        this.discardPile = [];
     }
     toString(){
         return JSON.stringify(this);
