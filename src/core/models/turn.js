@@ -1,4 +1,6 @@
+//noinspection JSUnresolvedFunction
 var guid = require('node-uuid');
+
 class Turn{
     constructor (gameId,currentPlayer)
     {
@@ -8,15 +10,12 @@ class Turn{
         this.status  = 'ready';
         this.power = 0;
         this.cardsPlayed = [];
+        this.cardsPurchased = [];
         this.cardsDistroyed = [];
         this.lastTurn = {};
     }
     toString(){
         return JSON.stringify(this);
-    }
-
-    playCard(cardIndex){
-
     }
 }
 module.exports = Turn;

@@ -12,7 +12,7 @@ let loadMainDeck = function (deckConfig,allCards) {
     for (let cardConfig in deckConfig.cards) {
         for (let card in allCards) {
             if (deckConfig.cards[cardConfig].name === allCards[card].name) {
-                if (deckConfig.outOfDeck.indexOf(allCards[card].type) < 0) {
+                if ((deckConfig.outOfDeck.indexOf(allCards[card].cardType) < 0) && (deckConfig.outOfDeck.indexOf(allCards[card].name) < 0)) {
                     for (let i = 0; i < deckConfig.cards[card].count; i++) {
                         mainDeck.push(allCards[card]);
                     }
