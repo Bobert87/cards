@@ -4,6 +4,8 @@ var clone = require('clone');
 /*Utils*/
 var guid = require('node-uuid');
 
+const nl = (process.platform === 'win32' ? '\r\n' : '\n');
+
 const initPlayers = function(number, allCards) {
     //First Hand
     let mainDeck = [];
@@ -12,6 +14,7 @@ const initPlayers = function(number, allCards) {
         for (let card in allCards) {
             for (let k = 0; k < firstHand[st]; k++) {
                 if (allCards[card].name === st) {
+                    console.log(allCards[card]);
                     mainDeck.push(allCards[card]);
                 }
             }
@@ -32,7 +35,7 @@ const initPlayers = function(number, allCards) {
     for (let i = 0; i < number; i++) {
         let p = new Player('', 'Player-' + i, playersOrder[i] + 1,require('../cards/'+characters.shift().file));
         shuffle(mainDeck);
-        p.mainDeck = mainDeck;
+        p.mainDeck = clone(mainDeck);
         for(let j=0;j<this.setup.handSize;j++)
         {
             p.hand.push(p.mainDeck.pop());
@@ -41,21 +44,29 @@ const initPlayers = function(number, allCards) {
     }
     return players;
 }
-const playCard = function(cardIndex){
+const playCard = function(cardIndex) {
+    let powerLog = '';
     let card = this.turn.player.hand[cardIndex];
-    for(let power in card.powers)
-    {
+    for (let power in card.powers) {
         let powRow = card.powers[power];
-        let result = this.setup.powers[powRow[0]](this.turn,powRow.slice(1,powRow.length));
-        console.log(result);
+        let result = this.setup.powers[powRow[0]](this.turn, powRow.slice(1, powRow.length));
+        powerLog = result + nl;
     }
-    this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex,1));
+    console.log(powerLog);
+    this.turn.status = 'playing';
+    this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex, 1));
 }
 const purchaseCard = function(cardIndex){
         let card = this.lineUp.splice(cardIndex,1)[0];
         this.turn.cardsPurchased.push(card);
         this.turn.power -= card.cost;
         return card;
+}
+const setLineUp = function(){
+    while(this.lineUp.length < 5)
+    {
+        this.lineUp.push(game.mainDeck.pop());
+    }
 }
 
 class Game {
@@ -67,6 +78,7 @@ class Game {
         this.initPlayers = initPlayers;
         this.playCard = playCard;
         this.purchaseCard = purchaseCard;
+        this.setLineUp = setLineUp;
 
         //Create an Id for this as a unique game
         this.id = guid.v1();

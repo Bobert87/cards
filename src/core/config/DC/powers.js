@@ -4,10 +4,8 @@
 
 function addPower(turn, args) {
     let power = args[0];
-    console.log('turn power' + turn.power);
     turn.power += power;
-    console.log('turn power after adding' + turn.power);
-    return 'power added to turn';
+    return power + ' power added to turn.';
 }
 
 class Powers {
