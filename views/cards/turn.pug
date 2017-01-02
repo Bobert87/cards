@@ -1,0 +1,36 @@
+include card
+include character
+
+link(rel='stylesheet', href='../../../css/DC/style.css')
+
+div(style={border:'1px solid',width:'100%',display:'inline-block'})
+    h2(align='center', style={margin:'10px 0 0 0'}) LineUp
+    div(class='center')
+        each val,index in lineUp
+            +card(val,lineUpEndPoint + index,'Purchase Card')
+
+
+
+div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
+    h2(align='center', style={margin:'10px 0 0 0'}) Hand
+    div(class='center')
+        each val,index in hand
+            +card(val,cardEndPoint + index,'Play Card')
+
+
+div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
+    div(class='center')
+        div(style={width: '100%', display: 'block', float: 'left'})
+            div(style={background:'#715caf',width: '65%',display: 'inline-block', float: 'left'})
+                h2(align='center', style={margin:'10px 0 10px 0'}) #{turn.player.nickname}
+            div(style={background:'#9c7555',width: '35%', display: 'inline-block', float: 'left'})
+                h2(align='center', style={margin: '10px 0 10px 0'}) Power: #{turn.power}
+
+    div(class='center')
+        +card(turn.player.character,'','')
+
+
+
+    div(style={background:'#fa4d38', width: '100%', display: 'block', float: 'left'})
+        a(href=endTurnEndPoint)
+            h2(align='center', style={margin: '10px 0 10px 0'}) End Turn

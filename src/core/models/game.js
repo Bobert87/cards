@@ -35,10 +35,10 @@ const initPlayers = function(number, allCards) {
     for (let i = 0; i < number; i++) {
         let p = new Player('', 'Player-' + i, playersOrder[i] + 1,require('../cards/'+characters.shift().file));
         shuffle(mainDeck);
-        p.mainDeck = clone(mainDeck);
+        p.deck = clone(mainDeck);
         for(let j=0;j<this.setup.handSize;j++)
         {
-            p.hand.push(p.mainDeck.pop());
+            p.hand.push(p.deck.pop());
         }
         players.push(p);
     }
@@ -65,8 +65,37 @@ const purchaseCard = function(cardIndex){
 const setLineUp = function(){
     while(this.lineUp.length < 5)
     {
-        this.lineUp.push(game.mainDeck.pop());
+        this.lineUp.push(this.mainDeck.pop());
     }
+}
+const setHand = function(handSize = 5){
+    while(this.turn.player.hand.length > 0) {
+        this.turn.player.discardPile.push(this.turn.player.hand.pop());
+    }
+    if (this.turn.player.deck.length >= handSize) {
+        while(this.turn.player.hand.length < handSize){
+            this.turn.player.hand.push(this.turn.player.deck.pop());
+        }
+    }
+    else{
+        let cardCount = 0;
+        while(this.turn.player.deck.length > 0){
+            this.turn.player.hand.push(this.turn.player.deck.pop());
+            cardCount++;
+        }
+        shuffle(this.turn.player.discardPile);
+
+        while(this.turn.player.discardPile.length > 0){
+            this.turn.player.deck.push(this.turn.player.discardPile.pop());
+            cardCount++;
+        }
+
+        while(this.turn.player.hand.length < handSize){
+            this.turn.player.hand.push(this.turn.player.deck.pop());
+        }
+    }
+
+
 }
 
 class Game {
@@ -79,8 +108,9 @@ class Game {
         this.playCard = playCard;
         this.purchaseCard = purchaseCard;
         this.setLineUp = setLineUp;
+        this.setHand = setHand;
 
-        //Create an Id for this as a unique game
+            //Create an Id for this as a unique game
         this.id = guid.v1();
         this.setup = clone(setup);
         this.players = this.initPlayers(numberOfPlayers, allCards);

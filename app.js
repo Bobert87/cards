@@ -8,7 +8,7 @@ var app = express();
 
 app.set('port',utils.ENV.port||3000);
 app.set('view engine', 'pug');
-
+app.use(express.static('public'));
 /*Server*/
 
 
@@ -67,6 +67,7 @@ app.get('/game/:gameId/turn/start',function(req,res) {
         game.players.push(player);
         let turn = new Turn(gameId, player);
         game.turn = turn;
+        console.log(game.turn.player);
         //res.send('<h1>Game has started!!!!!</h1><h2>'+turn.player.character.name+'</h2>'+JSON.stringify(turn.player.hand));
     }
     else {
@@ -78,7 +79,7 @@ app.get('/game/:gameId/turn/start',function(req,res) {
             console.log('localhost:3001/game/'+gameId+'/turn/'+game.turn.id+'/card/0')
         }
     }
-    res.render('cards/card.pug',{
+    res.render('cards/turn.pug',{
         hand: game.turn.player.hand,
         lineUp:game.lineUp,
         turn: game.turn,
@@ -95,10 +96,11 @@ app.get('/game/:gameId/turn/:turnId/end',function(req,res) {
     let turnId =  req.params.turnId;
     if (game.turn.id === turnId)
     {
-        game.turn = null;
         game.setLineUp();
+        game.setHand();
+        game.turn = null;
     }
-    res.send('Turn ended by player.')
+    res.send('Turn ended by player.');
     return 200;
 });
 
@@ -147,10 +149,6 @@ app.get('/game/:gameId/turn/:turnId/lineup/:cardIndex',function(req,res){
     }
     game.purchaseCard(cardIndex);
     res.send(game.lineUp);
-    console.log('Turn Power:'+ game.turn.power);
-    console.log('LineUp Card Cpst:'+ game.lineUp[cardIndex].cost);
-    console.log('-------------------------------------Purchased------------------------------------');
-    console.log(game.turn.cardsPurchased);
 });
 
 app.get('/cards',function(req,res){

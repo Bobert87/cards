@@ -4,6 +4,7 @@
    "cost": 0,
    "victoryPoints" : 0,
    "description":"+ 1 Power for each Equipment you play during your turn.",
+   "image": "../../../img/DC/cards/superheroe/batman.jpg",
    "powers": [
           {"addPower":["Card",1,"is Equipment"]}
    ]

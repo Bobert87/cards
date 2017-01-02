@@ -4,6 +4,7 @@
    "cost": 5,
    "victoryPoints" : 1,
    "description":"Draw two cards.",
+   "image": "../../../img/DC/cards/hero/thefastestmanalive.jpg",
    "powers": [
       {"drawCard":["Turn",2,""]}
    ]

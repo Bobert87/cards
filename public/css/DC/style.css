@@ -1,0 +1,110 @@
+@font-face {
+    font-family: comic;
+    src: url(newcomictitle.ttf);
+}
+
+@font-face {
+    font-family: slim;
+    src: url(slim.otf);
+}
+
+@font-face {
+    font-family: nixie;
+    src: url(nixie.ttf);
+}
+
+.card{
+    position:relative;
+    height: 230px;
+    width: 190px;
+    display: inline-block;
+    flex-basis:auto;
+    margin:5px;
+    color:#000000;
+}
+
+.card .name{
+    padding: 3% 5%;
+    height: 5%;
+    font-size:medium;
+    font-family: comic, serif;
+    text-align: left;
+}
+
+.card .description{
+    height: 28%;
+    padding: 2% 5%;
+    font-size:65%;
+    font-family: nixie,serif;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.card .cardType{
+    height: 6%;
+    padding: 2% 5%;
+    font-size:small;
+    font-family: arial, serif;
+    text-align: left;
+}
+
+.card .avatar {
+    width:100%;
+    height:40%;
+    border:0;
+}
+
+.card .victory {
+    background-color: #ffcd6a;
+    height:100%;
+    width:25%;
+
+}
+
+.card  .cost {
+    background-color: #ff507c;
+    height:100%;
+    width:25%;
+}
+
+.Hero{
+    background-color: #00A6E7;
+}
+
+.Villain{
+    background-color: #e73620;
+}
+
+.Super_Power{
+    background-color: #e78f41;
+}
+
+.Starter{
+    background-color: #ffed2c;
+}
+
+.Super_Hero{
+    background-color: #000000;
+    height: 280px;
+    width: 230px;
+    max-width: 250px;
+    max-height: 400px;
+}
+
+.center {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+
+.center-bottom {
+    width:100%;
+    background-color: black;
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    align-items:stretch;
+    text-align: center;
+}
+

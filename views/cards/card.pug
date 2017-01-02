@@ -1,34 +1,11 @@
-div(style={border:'1px solid',width:'100%',display:'inline-block'})
-    h2(align='center', style={margin:'10px 0 0 0'}) LineUp
-    each val,index in lineUp
-        div(style={border:'1px solid',width:'15%', height:'200px',display:'inline-block', float:'left',margin:'2%'})
-            div(align='center', style={background:'#ffbe48'})= val.name
-            div(align='center', style={background:'#C7FA34'})= val.description
-            div(align='center', style={background:'#A4FAB4'})
-                a(href=lineUpEndPoint + index) Purchase card.
-
-
-div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
-    h2(align='center', style={margin:'10px 0 0 0'}) Hand
-    each val,index in hand
-        div(style={border:'1px solid',width:'15%', height:'200px',display:'inline-block', float:'left',margin:'2%'})
-            div(align='center', style={background:'#ffbe48'})= val.name
-            div(align='center', style={background:'#C7FA34'})= val.description
-            div(align='center', style={background:'#A4FAB4'})
-                a(href=cardEndPoint + index, target='_blank') Play card.
-
-div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
-
-    div(style={width: '100%', display: 'block', float: 'left'})
-        div(style={background:'#715caf',width: '65%',display: 'inline-block', float: 'left'})
-            h2(align='center', style={margin:'10px 0 10px 0'}) #{turn.player.nickname}
-        div(style={background:'#9c7555',width: '35%', display: 'inline-block', float: 'left'})
-            h2(align='center', style={margin: '10px 0 10px 0'}) Power: #{turn.power}
-
-    div(style={border: '1px solid', width: '15%', height: '200px', display: 'inline-block', float: 'left', margin: '2%'})
-        div(align='center', style={background: '#8ba9ff'})= turn.player.character.name
-        div(align='center', style={background:'#C7FA34'})= turn.player.character.description
-
-    div(style={background:'#fa4d38', width: '100%', display: 'block', float: 'left'})
-        a(href=endTurnEndPoint)
-            h2(align='center', style={margin: '10px 0 10px 0'}) End Turn
+mixin card(card,EndPoint, callToAction)
+    -var color
+    a(href=EndPoint)
+        div(class='card ' + card.cardType.replace(' ','_'))
+            div(class='name', style={background: '#ffbe48'})= card.name
+            img(align='center', class='avatar', src=card.image)
+            div(class='cardType', style={background: '#57ff31'})= card.cardType
+            div(class='description', style={background: '#C7FA34'})= card.description
+            div(class='center-bottom')
+                div(class='victory')= card.victoryPoints
+                div(class='cost')= card.cost

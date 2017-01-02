@@ -92,17 +92,17 @@ let Setup = {
         //Villian
         {
             name: 'Doomsday',
-            file: 'villian/doomsday.json',
+            file: 'villain/doomsday.json',
             count: 2
         },
         {
             name: 'Gorilla Grodd',
-            file: 'villian/gorillagrodd.json',
+            file: 'villain/gorillagrodd.json',
             count: 2
         },
         {
             name: 'The Penguin',
-            file: 'villian/thepenguin.json',
+            file: 'villain/thepenguin.json',
             count: 2
         }
     ],
