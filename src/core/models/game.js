@@ -43,7 +43,7 @@ const initPlayers = function(number, allCards) {
         players.push(p);
     }
     return players;
-}
+};
 const playCard = function(cardIndex) {
     let powerLog = '';
     let card = this.turn.player.hand[cardIndex];
@@ -55,19 +55,25 @@ const playCard = function(cardIndex) {
     console.log(powerLog);
     this.turn.status = 'playing';
     this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex, 1));
-}
+};
 const purchaseCard = function(cardIndex){
         let card = this.lineUp.splice(cardIndex,1)[0];
         this.turn.cardsPurchased.push(card);
         this.turn.power -= card.cost;
         return card;
-}
+};
+const endTurn = function endTurn(handSize=5) {
+    this.setLineUp();
+    this.setHand(handSize);
+    this.purchaseToDiscard();
+    this.turn = null;
+};
 const setLineUp = function(){
     while(this.lineUp.length < 5)
     {
         this.lineUp.push(this.mainDeck.pop());
     }
-}
+};
 const setHand = function(handSize = 5){
     while(this.turn.player.hand.length > 0) {
         this.turn.player.discardPile.push(this.turn.player.hand.pop());
@@ -96,6 +102,11 @@ const setHand = function(handSize = 5){
     }
 
 
+};
+const purchaseToDiscard = function(){
+    while(this.turn.cardsPurchased.length > 0){
+        this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
+    }
 }
 
 class Game {
@@ -109,6 +120,8 @@ class Game {
         this.purchaseCard = purchaseCard;
         this.setLineUp = setLineUp;
         this.setHand = setHand;
+        this.endTurn = endTurn;
+        this.purchaseToDiscard = purchaseToDiscard;
 
             //Create an Id for this as a unique game
         this.id = guid.v1();

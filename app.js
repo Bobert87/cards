@@ -96,9 +96,7 @@ app.get('/game/:gameId/turn/:turnId/end',function(req,res) {
     let turnId =  req.params.turnId;
     if (game.turn.id === turnId)
     {
-        game.setLineUp();
-        game.setHand();
-        game.turn = null;
+        game.endTurn();
     }
     res.send('Turn ended by player.');
     return 200;
