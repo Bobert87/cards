@@ -1,6 +1,6 @@
 mixin character(card)
     -var color
-    div(class='card ' + card.cardType.replace(' ','_'))
+    div(class='card ' + card.cardType.replace(' ', '_'))
         div(class='name', style={background: '#ffbe48'})= card.name
         img(align='center', class='avatar', src=card.image)
         div(class='cardType', style={background: '#57ff31'})= card.cardType

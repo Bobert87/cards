@@ -3,8 +3,10 @@
  */
 
 function addPower(turn, args) {
+
     let power = args[0];
     turn.power += power;
+
     return power + ' power added to turn.';
 }
 

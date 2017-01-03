@@ -1,11 +1,17 @@
 {
-   "cardType": "Hero",
-   "name": "Kid Flash",
-   "cost": 2,
-   "victoryPoints" : 1,
-   "description":"Draw a card.",
-   "image": "../../../img/DC/cards/hero/kidflash.jpg",
-   "powers": [
-      {"drawCard":["Turn",1,""]}
-   ]
+  "cardType": "Hero",
+  "name": "Kid Flash",
+  "cost": 2,
+  "victoryPoints": 1,
+  "description": "Draw a card.",
+  "image": "../../../img/DC/cards/hero/kidflash.jpg",
+  "powers": [
+    {
+      "drawCard": [
+        "Turn",
+        1,
+        ""
+      ]
+    }
+  ]
 }

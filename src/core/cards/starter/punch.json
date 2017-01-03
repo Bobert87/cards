@@ -1,11 +1,14 @@
 {
-   "cardType": "Starter",
-   "name": "Punch",
-   "cost": 0,
-   "victoryPoints": 0,
-   "description": "+1 Power",
-   "image": "../../../img/DC/cards/starter/punch.jpg",
-   "powers": [
-      ["addPower", 1]
-   ]
+  "cardType": "Starter",
+  "name": "Punch",
+  "cost": 0,
+  "victoryPoints": 0,
+  "description": "+1 Power",
+  "image": "../../../img/DC/cards/starter/punch.jpg",
+  "powers": [
+    [
+      "addPower",
+      1
+    ]
+  ]
 }

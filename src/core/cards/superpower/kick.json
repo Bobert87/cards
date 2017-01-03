@@ -1,11 +1,17 @@
 {
-   "cardType": "Super Power",
-   "name": "Kick",
-   "cost": 3,
-   "victoryPoints" : 1,
-   "description":"+2 Power",
-   "image": "../../../img/DC/cards/superpower/kick.jpg",
-   "powers": [
-      {"addPower":["Turn",2,""]}
-   ]
+  "cardType": "Super Power",
+  "name": "Kick",
+  "cost": 3,
+  "victoryPoints": 1,
+  "description": "+2 Power",
+  "image": "../../../img/DC/cards/superpower/kick.jpg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        2,
+        ""
+      ]
+    }
+  ]
 }

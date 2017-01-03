@@ -1,11 +1,17 @@
 {
-   "cardType": "Villain",
-   "name": "Gorilla Grodd",
-   "cost": 5,
-   "victoryPoints" : 2,
-   "description":"+3 Power",
-   "image": "../../../img/DC/cards/villain/gorillagrodd.jpg",
-   "powers": [
-      {"addPower":["Turn",3,""]}
-   ]
+  "cardType": "Villain",
+  "name": "Gorilla Grodd",
+  "cost": 5,
+  "victoryPoints": 2,
+  "description": "+3 Power",
+  "image": "../../../img/DC/cards/villain/gorillagrodd.jpg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        3,
+        ""
+      ]
+    }
+  ]
 }

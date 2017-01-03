@@ -2,7 +2,7 @@
 
 // our wrapper function (required by grunt and its plugins)
 // all configuration goes inside this function
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     // ===========================================================================
     // CONFIGURE GRUNT ===========================================================
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    port:3001,
+                    port: 3001,
                     script: './app.js'
                 }
             },
@@ -33,26 +33,25 @@ module.exports = function(grunt) {
         },
         watch: {
             express: {
-                files:  [ 'app.js','src/core/**'],
-                tasks:  [ 'express:dev' ],
+                files: ['app.js', 'src/core/**'],
+                tasks: ['express:dev'],
                 options: {
                     spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
                 }
             }
         },
-        loadCards:{
-            dc:{
-                cards:['punch','weakness','kick','vulnerability']
+        loadCards: {
+            dc: {
+                cards: ['punch', 'weakness', 'kick', 'vulnerability']
             }
         }
     });
 
-    grunt.registerTask('loadCards','Loading Deck',function()
-    {
+    grunt.registerTask('loadCards', 'Loading Deck', function () {
         console.log(grunt.config('loadCards.dc.cards'));
     });
 
-    grunt.registerTask('play', [ 'express:dev','loadCards', 'watch' ]);
+    grunt.registerTask('play', ['express:dev', 'loadCards', 'watch']);
 
     // ===========================================================================
     // LOAD GRUNT PLUGINS ========================================================

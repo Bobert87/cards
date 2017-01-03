@@ -6,7 +6,7 @@ var guid = require('node-uuid');
 
 const nl = (process.platform === 'win32' ? '\r\n' : '\n');
 
-const initPlayers = function(number, allCards) {
+const initPlayers = function (number, allCards) {
     //First Hand
     let mainDeck = [];
     let firstHand = this.setup.initialPlayerDeck;
@@ -33,18 +33,17 @@ const initPlayers = function(number, allCards) {
     let characters = this.setup.characters;
     shuffle(characters);
     for (let i = 0; i < number; i++) {
-        let p = new Player('', 'Player-' + i, playersOrder[i] + 1,require('../cards/'+characters.shift().file));
+        let p = new Player('', 'Player-' + i, playersOrder[i] + 1, require('../cards/' + characters.shift().file));
         shuffle(mainDeck);
         p.deck = clone(mainDeck);
-        for(let j=0;j<this.setup.handSize;j++)
-        {
+        for (let j = 0; j < this.setup.handSize; j++) {
             p.hand.push(p.deck.pop());
         }
         players.push(p);
     }
     return players;
 };
-const playCard = function(cardIndex) {
+const playCard = function (cardIndex) {
     let powerLog = '';
     let card = this.turn.player.hand[cardIndex];
     for (let power in card.powers) {
@@ -56,63 +55,63 @@ const playCard = function(cardIndex) {
     this.turn.status = 'playing';
     this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex, 1));
 };
-const purchaseCard = function(cardIndex){
-        let card = this.lineUp.splice(cardIndex,1)[0];
-        this.turn.cardsPurchased.push(card);
-        this.turn.power -= card.cost;
-        return card;
+const purchaseCard = function (cardIndex) {
+    let card = this.lineUp.splice(cardIndex, 1)[0];
+    this.turn.cardsPurchased.push(card);
+    this.turn.power -= card.cost;
+    return card;
 };
-const endTurn = function endTurn(handSize=5) {
+const endTurn = function endTurn(handSize = 5) {
     this.setLineUp();
     this.setHand(handSize);
     this.purchaseToDiscard();
     this.turn = null;
 };
-const setLineUp = function(){
-    while(this.lineUp.length < 5)
-    {
+const setLineUp = function () {
+    while (this.lineUp.length < 5) {
         this.lineUp.push(this.mainDeck.pop());
     }
 };
-const setHand = function(handSize = 5){
-    while(this.turn.player.hand.length > 0) {
+const setHand = function (handSize = 5) {
+    while (this.turn.player.hand.length > 0) {
         this.turn.player.discardPile.push(this.turn.player.hand.pop());
     }
     if (this.turn.player.deck.length >= handSize) {
-        while(this.turn.player.hand.length < handSize){
+        while (this.turn.player.hand.length < handSize) {
             this.turn.player.hand.push(this.turn.player.deck.pop());
         }
     }
-    else{
+    else {
         let cardCount = 0;
-        while(this.turn.player.deck.length > 0){
+        while (this.turn.player.deck.length > 0) {
             this.turn.player.hand.push(this.turn.player.deck.pop());
             cardCount++;
         }
         shuffle(this.turn.player.discardPile);
 
-        while(this.turn.player.discardPile.length > 0){
+        while (this.turn.player.discardPile.length > 0) {
             this.turn.player.deck.push(this.turn.player.discardPile.pop());
             cardCount++;
         }
 
-        while(this.turn.player.hand.length < handSize){
+        while (this.turn.player.hand.length < handSize) {
             this.turn.player.hand.push(this.turn.player.deck.pop());
         }
     }
 
 
 };
-const purchaseToDiscard = function(){
-    while(this.turn.cardsPurchased.length > 0){
+const purchaseToDiscard = function () {
+    while (this.turn.cardsPurchased.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
     }
-}
+};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 class Game {
     toString() {
         return JSON.stringify(this);
     }
+
     constructor(setup, numberOfPlayers, allCards, mainDeck, lineUp, destoryed) {
         //Methods
         this.initPlayers = initPlayers;
@@ -123,7 +122,7 @@ class Game {
         this.endTurn = endTurn;
         this.purchaseToDiscard = purchaseToDiscard;
 
-            //Create an Id for this as a unique game
+        //Create an Id for this as a unique game
         this.id = guid.v1();
         this.setup = clone(setup);
         this.players = this.initPlayers(numberOfPlayers, allCards);

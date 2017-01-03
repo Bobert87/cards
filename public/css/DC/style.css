@@ -13,77 +13,77 @@
     src: url(nixie.ttf);
 }
 
-.card{
-    position:relative;
+.card {
+    position: relative;
     height: 230px;
     width: 190px;
     display: inline-block;
-    flex-basis:auto;
-    margin:5px;
-    color:#000000;
+    flex-basis: auto;
+    margin: 5px;
+    color: #000000;
 }
 
-.card .name{
+.card .name {
     padding: 3% 5%;
     height: 5%;
-    font-size:medium;
+    font-size: medium;
     font-family: comic, serif;
     text-align: left;
 }
 
-.card .description{
+.card .description {
     height: 28%;
     padding: 2% 5%;
-    font-size:65%;
-    font-family: nixie,serif;
+    font-size: 65%;
+    font-family: nixie, serif;
     font-weight: bolder;
     text-align: left;
 }
 
-.card .cardType{
+.card .cardType {
     height: 6%;
     padding: 2% 5%;
-    font-size:small;
+    font-size: small;
     font-family: arial, serif;
     text-align: left;
 }
 
 .card .avatar {
-    width:100%;
-    height:40%;
-    border:0;
+    width: 100%;
+    height: 40%;
+    border: 0;
 }
 
 .card .victory {
     background-color: #ffcd6a;
-    height:100%;
-    width:25%;
+    height: 100%;
+    width: 25%;
 
 }
 
-.card  .cost {
+.card .cost {
     background-color: #ff507c;
-    height:100%;
-    width:25%;
+    height: 100%;
+    width: 25%;
 }
 
-.Hero{
+.Hero {
     background-color: #00A6E7;
 }
 
-.Villain{
+.Villain {
     background-color: #e73620;
 }
 
-.Super_Power{
+.Super_Power {
     background-color: #e78f41;
 }
 
-.Starter{
+.Starter {
     background-color: #ffed2c;
 }
 
-.Super_Hero{
+.Super_Hero {
     background-color: #000000;
     height: 280px;
     width: 230px;
@@ -97,14 +97,13 @@
     flex-flow: wrap;
 }
 
-
 .center-bottom {
-    width:100%;
+    width: 100%;
     background-color: black;
     display: flex;
     height: 10%;
     justify-content: space-between;
-    align-items:stretch;
+    align-items: stretch;
     text-align: center;
 }
 

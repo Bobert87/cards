@@ -1,11 +1,17 @@
 {
-   "cardType": "Villain",
-   "name": "Doomsday",
-   "cost": 6,
-   "victoryPoints" : 2,
-   "description":"+4 Power",
-   "image": "../../../img/DC/cards/villain/doomsday.jpg",
-   "powers": [
-      {"addPower":["Turn",4,""]}
-   ]
+  "cardType": "Villain",
+  "name": "Doomsday",
+  "cost": 6,
+  "victoryPoints": 2,
+  "description": "+4 Power",
+  "image": "../../../img/DC/cards/villain/doomsday.jpg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        4,
+        ""
+      ]
+    }
+  ]
 }

@@ -1,11 +1,17 @@
 {
-   "cardType": "Hero",
-   "name": "Catwoman",
-   "cost": 2,
-   "victoryPoints" : 1,
-   "description":"+2 Power",
-   "image": "../../../img/DC/cards/hero/catwoman.jpg",
-   "powers": [
-      {"addPower":["Turn",2,""]}
-   ]
+  "cardType": "Hero",
+  "name": "Catwoman",
+  "cost": 2,
+  "victoryPoints": 1,
+  "description": "+2 Power",
+  "image": "../../../img/DC/cards/hero/catwoman.jpg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        2,
+        ""
+      ]
+    }
+  ]
 }
