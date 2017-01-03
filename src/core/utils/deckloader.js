@@ -1,3 +1,5 @@
+'use strict'
+
 let loadAllCards = function (deckConfig) {
 
     let allCards = [];

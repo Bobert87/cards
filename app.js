@@ -1,5 +1,4 @@
-"use strict";
-
+'use strict'
 /*Utils*/
 const utils = require('./src/core/utils/utils.js');
 /*Utils**/
@@ -8,7 +7,7 @@ const utils = require('./src/core/utils/utils.js');
 const express = require('express'),
       app     = express();
 
-app.set('port', process.env.port || 3001);
+app.set('port', utils.ENV.port || 3001);
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 /*Server*/

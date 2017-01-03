@@ -1,3 +1,4 @@
+'use strict'
 var Player = require('./player.js');
 var shuffle = require('shuffle-array');
 var clone = require('clone');

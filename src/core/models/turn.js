@@ -1,3 +1,4 @@
+'use strict'
 //noinspection JSUnresolvedFunction
 var guid = require('node-uuid');
 const turnStatus = ['ready', 'playing', 'ended'];

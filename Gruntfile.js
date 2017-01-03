@@ -21,6 +21,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 options: {
+		    port: 3000,
                     script: 'path/to/prod/server.js',
                     node_env: 'production'
                 }

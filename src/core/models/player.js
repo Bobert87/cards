@@ -1,3 +1,4 @@
+'use strict'
 var guid = require('node-uuid');
 
 class Player {

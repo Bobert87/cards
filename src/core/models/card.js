@@ -1,3 +1,4 @@
+'use strict'
 class Card {
     constructor(cardType, name, cost, victoryPoints, description, powers, image) {
         this.cardType = cardType;

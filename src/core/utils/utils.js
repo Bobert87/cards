@@ -1,3 +1,8 @@
+'use strict'
+module.exports.ENV = {
+    port:3001
+};
+
 module.exports.getSetup = function getSetup(name) {
     let root = '../config';
     let path = '/DC';

@@ -1,3 +1,4 @@
+'use strict'
 /**
  * Created by boris on 12/26/2016.
  */
@@ -107,5 +108,3 @@ module.exports.Setup = {
         }
     ]
 };
-
-module.exports.Setup = Setup;
