@@ -1,7 +1,12 @@
 include card
 include character
 
-link(rel='stylesheet', href='../../../css/DC/style.css')
+head
+    title Card Game!
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script(src='../../../controller/turn.js')
+    link(rel='stylesheet', href='../../../css/DC/style.css')
+
 
 div(style={border:'1px solid',width:'100%',display:'inline-block'})
     h2(align='center', style={margin:'10px 0 0 0'}) LineUp
@@ -9,14 +14,11 @@ div(style={border:'1px solid',width:'100%',display:'inline-block'})
         each val,index in lineUp
             +card(val,lineUpEndPoint + index,'Purchase Card')
 
-
-
 div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
     h2(align='center', style={margin:'10px 0 0 0'}) Hand
     div(class='center')
         each val,index in hand
             +card(val,cardEndPoint + index,'Play Card')
-
 
 div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0 0 0'})
     div(class='center')
@@ -29,8 +31,5 @@ div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0
     div(class='center')
         +card(turn.player.character,'','')
 
-
-
-    div(style={background:'#fa4d38', width: '100%', display: 'block', float: 'left'})
-        a(href=endTurnEndPoint)
-            h2(align='center', style={margin: '10px 0 10px 0'}) End Turn
+    div(onclick='update("'+endTurnEndPoint+'")',style={background:'#fa4d38', width: '100%', display: 'block', float: 'left'})
+        h2(align='center', style={margin: '10px 0 10px 0'}) End Turn

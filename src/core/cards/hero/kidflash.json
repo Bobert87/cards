@@ -6,6 +6,6 @@
    "description":"Draw a card.",
    "image": "../../../img/DC/cards/hero/kidflash.jpg",
    "powers": [
-      {"drawCard":["Turn",1,""]}
+      ["drawCard", 1]
    ]
 }

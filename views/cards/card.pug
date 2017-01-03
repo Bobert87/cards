@@ -1,11 +1,11 @@
 mixin card(card,EndPoint, callToAction)
     -var color
-    a(href=EndPoint)
-        div(class='card ' + card.cardType.replace(' ','_'))
-            div(class='name', style={background: '#ffbe48'})= card.name
-            img(align='center', class='avatar', src=card.image)
-            div(class='cardType', style={background: '#57ff31'})= card.cardType
-            div(class='description', style={background: '#C7FA34'})= card.description
-            div(class='center-bottom')
-                div(class='victory')= card.victoryPoints
-                div(class='cost')= card.cost
+    ///*a(href=EndPoint)*/
+    div(onclick='update("'+EndPoint+'")',class='card ' + card.cardType.replace(' ','_'))
+        div(class='name', style={background: '#ffbe48'})= card.name
+        img(align='center', class='avatar', src=card.image)
+        div(class='cardType', style={background: '#57ff31'})= card.cardType
+        div(class='description', style={background: '#C7FA34'})= card.description
+        div(class='center-bottom')
+            div(class='victory')= card.victoryPoints
+            div(class='cost')= card.cost

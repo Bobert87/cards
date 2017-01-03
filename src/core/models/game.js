@@ -49,7 +49,7 @@ const playCard = function(cardIndex) {
     let card = this.turn.player.hand[cardIndex];
     for (let power in card.powers) {
         let powRow = card.powers[power];
-        let result = this.setup.powers[powRow[0]](this.turn, powRow.slice(1, powRow.length));
+        let result = this.setup.powers[powRow[0]](this, powRow.slice(1, powRow.length));
         powerLog = result + nl;
     }
     console.log(powerLog);
@@ -89,13 +89,7 @@ const setHand = function(handSize = 5){
             this.turn.player.hand.push(this.turn.player.deck.pop());
             cardCount++;
         }
-        shuffle(this.turn.player.discardPile);
-
-        while(this.turn.player.discardPile.length > 0){
-            this.turn.player.deck.push(this.turn.player.discardPile.pop());
-            cardCount++;
-        }
-
+        this.discardIntoDeck();
         while(this.turn.player.hand.length < handSize){
             this.turn.player.hand.push(this.turn.player.deck.pop());
         }
@@ -106,6 +100,12 @@ const setHand = function(handSize = 5){
 const purchaseToDiscard = function(){
     while(this.turn.cardsPurchased.length > 0){
         this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
+    }
+}
+const discardIntoDeck = function(){
+    shuffle(this.turn.player.discardPile);
+    while(this.turn.player.discardPile.length > 0){
+        this.turn.player.deck.push(this.turn.player.discardPile.pop());
     }
 }
 
@@ -122,6 +122,7 @@ class Game {
         this.setHand = setHand;
         this.endTurn = endTurn;
         this.purchaseToDiscard = purchaseToDiscard;
+        this.discardIntoDeck = discardIntoDeck;
 
             //Create an Id for this as a unique game
         this.id = guid.v1();

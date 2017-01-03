@@ -105,8 +105,7 @@ let Setup = {
             file: 'villain/thepenguin.json',
             count: 2
         }
-    ],
-    powers:{}
+    ]
 };
 
 module.exports.Setup = Setup;
