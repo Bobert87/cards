@@ -1,11 +1,17 @@
 {
-   "cardType": "Super Power",
-   "name": "Super Strength",
-   "cost": 7,
-   "victoryPoints" : 2,
-   "description":"+5 Power",
-   "image": "../../../img/DC/cards/superpower/superstrenght.jpeg",
-   "powers": [
-      {"addPower":["Turn",5,""]}
-   ]
+  "cardType": "Super Power",
+  "name": "Super Strength",
+  "cost": 7,
+  "victoryPoints": 2,
+  "description": "+5 Power",
+  "image": "../../../img/DC/cards/superpower/superstrenght.jpeg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        5,
+        ""
+      ]
+    }
+  ]
 }

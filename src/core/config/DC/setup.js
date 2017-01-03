@@ -1,14 +1,14 @@
 /**
  * Created by boris on 12/26/2016.
  */
-let Setup = {
+module.exports.Setup = {
     handSize: 5,
     lineupSize: 5,
     initialPlayerDeck: {
         'Punch': 6,
         'Vulnerability': 4
     },
-    outOfDeck: ['Starter','Kick'],
+    outOfDeck: ['Starter', 'Kick'],
     characterCount: 1,
     characters: [
         {

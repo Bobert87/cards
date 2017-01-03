@@ -1,11 +1,18 @@
 {
-   "cardType": "Super Hero",
-   "name": "Wonder Woman",
-   "cost": 0,
-   "victoryPoints" : 0,
-   "description":"For each Villian you buy or gain during your turn, draw an extra card at the end of your turn.",
-   "image": "../../../img/DC/cards/superheroe/wonderwoman.jpg",
-   "powers": [
-      {"moveCard":["Turn","Hand","Top","cardType is Villian"]}
-   ]
+  "cardType": "Super Hero",
+  "name": "Wonder Woman",
+  "cost": 0,
+  "victoryPoints": 0,
+  "description": "For each Villian you buy or gain during your turn, draw an extra card at the end of your turn.",
+  "image": "../../../img/DC/cards/superheroe/wonderwoman.jpg",
+  "powers": [
+    {
+      "moveCard": [
+        "Turn",
+        "Hand",
+        "Top",
+        "cardType is Villian"
+      ]
+    }
+  ]
 }

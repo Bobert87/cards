@@ -1,6 +1,5 @@
 mixin card(card,EndPoint, callToAction)
     -var color
-    ///*a(href=EndPoint)*/
     div(onclick='update("'+EndPoint+'")',class='card ' + card.cardType.replace(' ','_'))
         div(class='name', style={background: '#ffbe48'})= card.name
         img(align='center', class='avatar', src=card.image)

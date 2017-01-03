@@ -2,6 +2,7 @@
  * Created by boris on 12/26/2016.
  */
 
+
 function addPower(game, args) {
     let power = args[0];
     game.turn.power += power;

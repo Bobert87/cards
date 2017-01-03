@@ -1,14 +1,19 @@
 let loadAllCards = function (deckConfig) {
-    let allCards;
-    allCards = [];
+
+    let allCards = [];
+
     for (let card in deckConfig.cards) {
-        let c = require('../cards/' + deckConfig.cards[card].file);
+        let c = require(`../cards/${deckConfig.cards[card].file}`);
         allCards.push(c)
     }
+
     return allCards;
-}
-let loadMainDeck = function (deckConfig,allCards) {
+};
+
+let loadMainDeck = function (deckConfig, allCards) {
+
     let mainDeck = [];
+
     for (let cardConfig in deckConfig.cards) {
         for (let card in allCards) {
             if (deckConfig.cards[cardConfig].name === allCards[card].name) {
@@ -21,7 +26,7 @@ let loadMainDeck = function (deckConfig,allCards) {
         }
     }
     return mainDeck;
-}
+};
 
 module.exports.loadAllCards = loadAllCards;
 module.exports.loadMainDeck = loadMainDeck;

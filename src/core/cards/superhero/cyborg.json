@@ -1,12 +1,24 @@
 {
-   "cardType": "Super Hero",
-   "name": "Cyborg",
-   "cost": 0,
-   "victoryPoints" : 0,
-   "description":"If you play one or more Super Powers during your turn, +1 Power. If you play one or more Equipment during your turn, draw a card.",
-   "image": "../../../img/DC/cards/superheroe/cyborg.jpg",
-   "powers": [
-      {"addPower":["Turn",1,"is Super Power"]},
-      {"drawCard":["Turn",1,"is Equipment"]}
-   ]
+  "cardType": "Super Hero",
+  "name": "Cyborg",
+  "cost": 0,
+  "victoryPoints": 0,
+  "description": "If you play one or more Super Powers during your turn, +1 Power. If you play one or more Equipment during your turn, draw a card.",
+  "image": "../../../img/DC/cards/superheroe/cyborg.jpg",
+  "powers": [
+    {
+      "addPower": [
+        "Turn",
+        1,
+        "is Super Power"
+      ]
+    },
+    {
+      "drawCard": [
+        "Turn",
+        1,
+        "is Equipment"
+      ]
+    }
+  ]
 }
