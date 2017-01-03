@@ -1,24 +1,11 @@
 {
-  "cardType": "Villain",
-  "name": "The Penguin",
-  "cost": 3,
-  "victoryPoints": 1,
-  "description": "Draw two cards, then choose and discard two cards from your hand.",
-  "image": "../../../img/DC/cards/villain/thepenguin.png",
-  "powers": [
-    {
-      "drawCard": [
-        "Turn",
-        2,
-        ""
-      ]
-    },
-    {
-      "discardCard": [
-        "Turn",
-        2,
-        ""
-      ]
-    }
-  ]
+   "cardType": "Villain",
+   "name": "The Penguin",
+   "cost": 3,
+   "victoryPoints" : 1,
+   "description":"Draw two cards, then choose and discard two cards from your hand.",
+   "image": "../../../img/DC/cards/villain/thepenguin.png",
+   "powers": [
+      ["drawCard", 2]
+   ]
 }
