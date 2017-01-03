@@ -20,6 +20,8 @@
     "jshint-stylish": "latest"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "clone": "^2.1.0",
+    "express": "^4.14.0",
+    "shuffle-array": "^1.0.0"
   }
 }
