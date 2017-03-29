@@ -93,8 +93,6 @@ const setHand = function (handSize = 5) {
             this.turn.player.hand.push(this.turn.player.deck.pop());
         }
     }
-
-
 };
 const purchaseToDiscard = function () {
     while (this.turn.cardsPurchased.length > 0) {
