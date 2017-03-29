@@ -65,6 +65,7 @@ const purchaseCard = function (cardIndex) {
 const endTurn = function endTurn(handSize = 5) {
     this.setLineUp();
     this.setHand(handSize);
+    this.playedToDiscard();
     this.purchaseToDiscard();
     this.turn = null;
 };
@@ -94,11 +95,19 @@ const setHand = function (handSize = 5) {
         }
     }
 };
+
+const playedToDiscard = function () {
+    while (this.turn.cardsPlayed.length > 0) {
+        this.turn.player.discardPile.push(this.turn.cardsPlayed.pop());
+    }
+}
+
 const purchaseToDiscard = function () {
     while (this.turn.cardsPurchased.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
     }
 }
+
 const discardIntoDeck = function(){
     shuffle(this.turn.player.discardPile);
     while(this.turn.player.discardPile.length > 0){
