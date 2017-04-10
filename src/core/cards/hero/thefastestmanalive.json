@@ -6,12 +6,6 @@
   "description": "Draw two cards.",
   "image": "../../../img/DC/cards/hero/thefastestmanalive.jpg",
   "powers": [
-    {
-      "drawCard": [
-        "Turn",
-        2,
-        ""
-      ]
-    }
+    ["drawCard", 1]
   ]
 }

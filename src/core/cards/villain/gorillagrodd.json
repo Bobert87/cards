@@ -6,12 +6,6 @@
   "description": "+3 Power",
   "image": "../../../img/DC/cards/villain/gorillagrodd.jpg",
   "powers": [
-    {
-      "addPower": [
-        "Turn",
-        3,
-        ""
-      ]
-    }
+    ["addPower", 3]
   ]
 }

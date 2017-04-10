@@ -15,7 +15,6 @@ const initPlayers = function (number, allCards) {
         for (let card in allCards) {
             for (let k = 0; k < firstHand[st]; k++) {
                 if (allCards[card].name === st) {
-                    console.log(allCards[card]);
                     mainDeck.push(allCards[card]);
                 }
             }
@@ -52,9 +51,8 @@ const playCard = function (cardIndex) {
         let result = this.setup.powers[powRow[0]](this, powRow.slice(1, powRow.length));
         powerLog = result + nl;
     }
-    console.log(powerLog);
     this.turn.status = 'playing';
-    this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex, 1));
+    this.turn.cardsPlayed.push(this.turn.player.hand.splice(cardIndex, 1)[0]);
 };
 const purchaseCard = function (cardIndex) {
     let card = this.lineUp.splice(cardIndex, 1)[0];
@@ -64,10 +62,11 @@ const purchaseCard = function (cardIndex) {
 };
 const endTurn = function endTurn(handSize = 5) {
     this.setLineUp();
-    this.setHand(handSize);
+    this.handToDiscard();
     this.playedToDiscard();
     this.purchaseToDiscard();
-    this.turn = null;
+    this.setHand(handSize);
+    delete this.turn;
 };
 const setLineUp = function () {
     while (this.lineUp.length < 5) {
@@ -75,9 +74,6 @@ const setLineUp = function () {
     }
 };
 const setHand = function (handSize = 5) {
-    while (this.turn.player.hand.length > 0) {
-        this.turn.player.discardPile.push(this.turn.player.hand.pop());
-    }
     if (this.turn.player.deck.length >= handSize) {
         while (this.turn.player.hand.length < handSize) {
             this.turn.player.hand.push(this.turn.player.deck.pop());
@@ -99,12 +95,20 @@ const setHand = function (handSize = 5) {
 const playedToDiscard = function () {
     while (this.turn.cardsPlayed.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPlayed.pop());
+
     }
 }
 
 const purchaseToDiscard = function () {
     while (this.turn.cardsPurchased.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
+    }
+}
+
+const handToDiscard = function () {
+    while (this.turn.player.hand.length > 0) {
+        this.turn.player.discardPile.push(this.turn.player.hand.pop());
+
     }
 }
 
@@ -129,7 +133,10 @@ class Game {
         this.setHand = setHand;
         this.endTurn = endTurn;
         this.purchaseToDiscard = purchaseToDiscard;
+        this.playedToDiscard = playedToDiscard;
         this.discardIntoDeck = discardIntoDeck;
+        this.handToDiscard = handToDiscard;
+
 
         //Create an Id for this as a unique game
         this.id = guid.v1();

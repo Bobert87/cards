@@ -6,20 +6,6 @@
   "description": "Gain all Equipment in the Line-Up. Then, if you play or have played Catwoman this turn, you may put a card you bought or gained this turn into your hand.",
   "image": "../../../img/DC/cards/hero/darkknight.jpg",
   "powers": [
-    {
-      "addPower": [
-        "Turn",
-        2,
-        ""
-      ]
-    },
-    {
-      "moveCard": [
-        "Card",
-        "CardsUnder5",
-        "Top",
-        "cost <= 5"
-      ]
-    }
+    ["addPower", 2]
   ]
 }

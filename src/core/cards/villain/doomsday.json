@@ -6,12 +6,6 @@
   "description": "+4 Power",
   "image": "../../../img/DC/cards/villain/doomsday.jpg",
   "powers": [
-    {
-      "addPower": [
-        "Turn",
-        4,
-        ""
-      ]
-    }
+    ["addPower", 4]
   ]
 }

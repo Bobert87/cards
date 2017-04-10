@@ -71,7 +71,7 @@ app.get('/game/:gameId/turn/start', function (req, res) {
         let player = game.players.shift();
         game.players.push(player);
         game.turn = new Turn(gameId, player);
-        console.log(game.turn.player);
+
     }
     else {
         switch (game.turn.status) {
@@ -102,11 +102,10 @@ app.get('/game/:gameId/turn/:turnId/end', function (req, res) {
         turnId = req.params.turnId;
 
     if (game.turn.id === turnId) {
+        console.log("END TRUN");
         game.endTurn();
     }
-
     res.send('Turn ended by player.');
-
     return 200;
 });
 
