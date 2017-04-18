@@ -3,7 +3,7 @@
 let loadAllCards = function (deckConfig) {
     let allCards = [];
     for (let card in deckConfig.cards) {
-        let c = require(`../cards/${deckConfig.cards[card].file}`);
+        let c = require(`../config/${deckConfig.name}/cards/${deckConfig.cards[card].file}`);
         allCards.push(c)
     }
     return allCards;

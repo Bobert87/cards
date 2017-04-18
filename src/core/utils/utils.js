@@ -6,16 +6,16 @@ module.exports.ENV = {
 
 module.exports.getSetup = function (name) {
     let root = '../config';
-    let path = '/DC';
+    let path = '/dc';
     
-    switch (name.toUpperCase()) {
-        case 'DC':
-            path = '/DC';
+    switch (name.toLowerCase()) {
+        case 'dc':
+            path = '/dc';
             break;
     }
     
-    let setup = require(root + path + '/setup.js').Setup;
-    let Powers = require(root + path + '/powers.js');
+    let setup = require(root + path + '/setup/setup.js').Setup;
+    let Powers = require(root + path + '/setup/powers.js');
     setup.powers = new Powers();
     return setup;
 };

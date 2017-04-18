@@ -33,7 +33,7 @@ const initPlayers = function (number, allCards) {
     let characters = this.setup.characters;
     shuffle(characters);
     for (let i = 0; i < number; i++) {
-        let p = new Player('', 'Player-' + i, playersOrder[i] + 1, require('../cards/' + characters.shift().file));
+        let p = new Player('', 'Player-' + i, playersOrder[i] + 1, require('../config/'+this.setup.name+'/cards/' + characters.shift().file));
         shuffle(mainDeck);
         p.deck = clone(mainDeck);
         for (let j = 0; j < this.setup.handSize; j++) {
@@ -69,7 +69,9 @@ const endTurn = function endTurn(handSize = 5) {
     delete this.turn;
 };
 const setLineUp = function () {
-    while (this.lineUp.length < 5) {
+    while (this.lineUp.length < this.setup.lineupSize) {
+        if (this.mainDeck.length == 0)
+            return;
         this.lineUp.push(this.mainDeck.pop());
     }
 };
@@ -91,34 +93,29 @@ const setHand = function (handSize = 5) {
         }
     }
 };
-
 const playedToDiscard = function () {
     while (this.turn.cardsPlayed.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPlayed.pop());
 
     }
 }
-
 const purchaseToDiscard = function () {
     while (this.turn.cardsPurchased.length > 0) {
         this.turn.player.discardPile.push(this.turn.cardsPurchased.pop());
     }
 }
-
 const handToDiscard = function () {
     while (this.turn.player.hand.length > 0) {
         this.turn.player.discardPile.push(this.turn.player.hand.pop());
 
     }
 }
-
 const discardIntoDeck = function(){
     shuffle(this.turn.player.discardPile);
     while(this.turn.player.discardPile.length > 0){
         this.turn.player.deck.push(this.turn.player.discardPile.pop());
     }
 }
-
 class Game {
     toString() {
         return JSON.stringify(this);

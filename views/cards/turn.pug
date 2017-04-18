@@ -1,5 +1,7 @@
 include card
 include character
+include prompt
+include sidebar
 
 head
     title Card Game!
@@ -34,3 +36,6 @@ div(style={border:'1px solid',width:'100%',display:'inline-block',margin:'10px 0
 
     div(onclick='update("'+endTurnEndPoint+'")',style={background:'#fa4d38', width: '100%', display: 'block', float: 'left'})
         h2(align='center', style={margin: '10px 0 10px 0'}) End Turn
+
++sidebar()
+//+prompt("",turn.player.character)

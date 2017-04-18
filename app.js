@@ -82,7 +82,7 @@ app.get('/game/:gameId/turn/start', function (req, res) {
                 console.log(`localhost:3001/game/${gameId}/turn/${game.turn.id}/card/0`);
         }
     }
-
+    console.log(JSON.stringify(game));
     res.render('cards/turn.pug', {
         hand           : game.turn.player.hand,
         lineUp         : game.lineUp,
@@ -102,7 +102,6 @@ app.get('/game/:gameId/turn/:turnId/end', function (req, res) {
         turnId = req.params.turnId;
 
     if (game.turn.id === turnId) {
-        console.log("END TRUN");
         game.endTurn();
     }
     res.send('Turn ended by player.');

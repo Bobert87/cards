@@ -13,6 +13,130 @@
     src: url(nixie.ttf);
 }
 
+/***sidebar***/
+.sidebar{
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    top:0;;
+    bottom:0;;
+    width:50px;
+    background-color: #cdc5c5;
+    animation: 1s;
+    float:left;
+}
+
+.sidebar .hero{
+    position: relative;
+    z-index: 11;
+    right: 0;
+    width:100%;
+    height:25%;
+    background-color: #38cd19;
+    animation: 1s;
+}
+
+.sidebar .location{
+    position: relative;
+    z-index: 11;
+    right: 0;
+    width:100%;
+    height:25%;
+    background-color: #cdbc4a;
+    animation: 1s;
+}
+
+.sidebar .players{
+    position: relative;
+    z-index: 11;
+    right: 0;
+    width:100%;
+    height:25%;
+    background-color: #cd238c;
+    animation: 1s;
+}
+
+.sidebar .villian{
+    position: relative;
+    z-index: 11;
+    right: 0;
+    width:100%;
+    height:25%;
+    background-color: #1e6dcd;
+    animation: 1s;
+}
+
+
+
+
+/***prompts***/
+
+.prompt {
+    background-color: rgba(72, 71, 71, 0.53);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.prompt .box {
+    width: 70%;
+    height: 70%;
+    z-index: 3;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 7px 7px 14px 4px rgba(0, 0, 0, 0.53);
+    padding: 25px 50px 0 50px;
+}
+
+.prompt .title {
+    text-align: center;
+    font-family: comic, serif;
+}
+
+.prompt .description {
+    text-align: justify;
+    font-weight: bold;
+    font-family: nixie, serif;
+}
+
+.prompt .options{
+    position: relative;
+    padding-left:0;
+}
+
+.prompt .option{
+    /*border-radius:20px;
+    /*border: solid 2px #715faf;*/
+    padding-left:10px;
+    line-height: 35px;
+    margin: 10px 0 10px 0;
+    position: relative;
+    background: #cadafa;
+    list-style: none;
+    font-family: nixie, serif;
+}
+
+.prompt .option:hover{
+    line-height: 35px;
+    margin: 10px 0 10px 0;
+    padding-left:10px;
+    position: relative;
+    background: #715caf;
+    color: #cadafa;
+    list-style: none;
+    font-family: nixie, serif;
+    box-shadow: rgba(58, 58, 58, 0.61) -2px 2px 13px 0px
+}
+
+/***cards***/
+
 .card {
     position: relative;
     height: 230px;
@@ -31,7 +155,8 @@
     text-align: left;
 }
 
-.card .description {
+.card .description{
+    margin:0;
     height: 28%;
     padding: 2% 5%;
     font-size: 65%;

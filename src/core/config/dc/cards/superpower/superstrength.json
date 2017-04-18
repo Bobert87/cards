@@ -6,12 +6,6 @@
   "description": "+5 Power",
   "image": "../../../img/DC/cards/superpower/superstrenght.jpeg",
   "powers": [
-    {
-      "addPower": [
-        "Turn",
-        5,
-        ""
-      ]
-    }
+    ["addPower", 4]
   ]
 }

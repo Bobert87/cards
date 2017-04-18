@@ -3,6 +3,7 @@
  * Created by boris on 12/26/2016.
  */
 module.exports.Setup = {
+    name: 'dc',
     handSize: 5,
     lineupSize: 5,
     initialPlayerDeck: {
