@@ -1,10 +1,9 @@
 mixin prompt(prompt,card)
     div(class='prompt background')
         div(class='box')
-            h1(class='title') Hola
-            p(class='description') long ass text while true content is set over here long ass text while true content is set over here long ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over herelong ass text while true content is set over here
+            h1(class='title')=  prompt.title
+            p(class='description')= prompt.description
             ul(class='options')
-                li(class='option') Option 1
-                li(class='option') Option 2
-                li(class='option') Option 3
+                each val,index in prompt.options
+                    li(class='option' onclick='alert('+index+')')=val                
             div(class='cards') Other cards

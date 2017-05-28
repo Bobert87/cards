@@ -5,21 +5,22 @@ const utils = require('./src/core/utils/utils.js');
 
 /*Server*/
 const express = require('express'),
-      app     = express();
+      app     = express(),
+      server = require('http').createServer(app),
+      io = require('socket.io')(server);
+
 
 app.set('port', utils.ENV.port || 3001);
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 /*Server*/
 
-
-
 /*Game Logic*/
-
 const cardLoader = require('./src/core/utils/deckloader.js'),
       player     = require('./src/core/models/player.js'),
       Game       = require('./src/core/models/game.js'),
-      Turn       = require('./src/core/models/turn.js');
+      Turn       = require('./src/core/models/turn.js'),
+      Prompt     = require('./src/core/models/prompt.js');
 
 let games = [];
 
@@ -81,8 +82,7 @@ app.get('/game/:gameId/turn/start', function (req, res) {
             default: //res.send('nothing has changed... <br>localhost:3001/game/'+gameId+'/turn/'+game.turn.id+'/card/0');
                 console.log(`localhost:3001/game/${gameId}/turn/${game.turn.id}/card/0`);
         }
-    }
-    console.log(JSON.stringify(game));
+    }    
     res.render('cards/turn.pug', {
         hand           : game.turn.player.hand,
         lineUp         : game.lineUp,
@@ -90,6 +90,7 @@ app.get('/game/:gameId/turn/start', function (req, res) {
         cardEndPoint   : `http://${req.header('host')}/game/${gameId}/turn/${game.turn.id}/card/`,
         lineUpEndPoint : `http://${req.header('host')}/game/${gameId}/turn/${game.turn.id}/lineup/`,
         endTurnEndPoint: `http://${req.header('host')}/game/${gameId}/turn/${game.turn.id}/end/`,
+        prompt         : new Prompt('Type','Prompt from card','Choose fight of flight',['Option1','O2','Opt3'],[],'regular')
     });
 
     return 200;
@@ -171,7 +172,25 @@ app.get('/cards', function (req, res) {
     return 200;
 });
 
-app.listen(app.get('port'), function () {
-    //fasdfasd
-    console.log(`Server listening on port ${process.env.port}`);
+app.get('/test', function (req, res) {
+
+    res.sendFile(__dirname+"/public/test.html");
+    console.log(io.clients());
 });
+
+io.on('connection', function(client) {  
+    console.log('Client connected...');
+
+    client.on('join', function(data) {
+        console.log(data)});
+
+    client.on('Player', function(data){
+        console.log(data)});
+    });
+
+// app.listen(app.get('port'), function () {
+//     //fasdfasd
+//     console.log(`Server listening on port ${process.env.port}`);
+// });
+
+server.listen(3001);
