@@ -1,4 +1,8 @@
 'use strict'
+
+/**
+ * This class will hold all the posible promts and queries to be asked to the players during game.s
+ */
 class Prompt {
     constructor(type,title,description,options,actions,layout) {        
         this.type = type;

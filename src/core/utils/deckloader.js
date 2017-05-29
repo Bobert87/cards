@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * Loads all cards in the configuration Object
+ * @param {string} deckConfig - Configuration Object
+ */
 let loadAllCards = function (deckConfig) {
     let allCards = [];
     for (let card in deckConfig.cards) {
@@ -9,6 +13,11 @@ let loadAllCards = function (deckConfig) {
     return allCards;
 };
 
+/**
+ * This will return the subset of all cards to be included in the main deck
+ * @param {Object} deckConfig  - The card setup
+ * @param {*} allCards  - All cards available for this setup.
+ */
 let loadMainDeck = function (deckConfig, allCards) {
     let mainDeck = [];
     for (let cardConfig in deckConfig.cards) {

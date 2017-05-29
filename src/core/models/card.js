@@ -1,4 +1,7 @@
 'use strict'
+/**
+ * This class holds a standard card.
+ */
 class Card {
     constructor(cardType, name, cost, victoryPoints, description, powers, image) {
         this.cardType = cardType;
@@ -8,6 +11,7 @@ class Card {
         this.victoryPoints = victoryPoints;
         this.description = description;
         this.powers = powers;
+        this.facingDown = false;
     }
 
     toString() {

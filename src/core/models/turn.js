@@ -3,6 +3,9 @@
 var guid = require('node-uuid');
 const turnStatus = ['ready', 'playing', 'ended'];
 
+/**
+ * This class will hold the ongoing turn for a given match
+ */
 class Turn {
     constructor(gameId, currentPlayer) {
         this.gameId = gameId;
